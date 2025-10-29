@@ -51,7 +51,8 @@ export class MyCharacter extends Phaser.Physics.Arcade.Sprite {
         this.scene.physics.add.existing(this)
         this.setCollideWorldBounds(true)
         this.setScale(1.5)
-        this.setBodySize(15, 37)
+        this.setBodySize(15, 32)
+        this.body.offset.y = 4
 
 
         this.scene.events.on('create', () => {
@@ -102,7 +103,7 @@ export class MyCharacter extends Phaser.Physics.Arcade.Sprite {
 
             if (this.scene.input.keyboard.addKey('a').isDown) {
                 this.charStatus.movingToLeft = true
-            } else { 
+            } else {
                 this.charStatus.movingToLeft = false
             }
 
@@ -136,6 +137,10 @@ export class MyCharacter extends Phaser.Physics.Arcade.Sprite {
                 }
                 this.setFlipX(true)
                 this.setVelocityX(this.horizontal_speed * -1)
+            }
+
+            if (this.body.velocity.y != 0 && !jumping) {
+                this.setFrame(23)
             }
 
             if (jumping && this.body.velocity.y == 0) {

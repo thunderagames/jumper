@@ -8,7 +8,8 @@ export class MyGame extends Phaser.Game {
                 width: 640,
                 height: 480,
                 //expandParent: true,
-                mode: Phaser.Scale.ScaleModes.FIT
+                mode: Phaser.Scale.ScaleModes.FIT,
+                autoCenter: Phaser.Scale.Center.CENTER_BOTH
             },
             dom: {
                 createContainer: true,
