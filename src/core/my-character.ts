@@ -49,7 +49,7 @@ export class MyCharacter extends Phaser.Physics.Arcade.Sprite {
         super(scene, x, y, 'knight')
         this.scene.physics.add.existing(this)
         this.setCollideWorldBounds(true)
-        this.setScale(1d)
+        this.setScale(1)
         this.setBodySize(15, 37)
 
 
