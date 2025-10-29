@@ -31,7 +31,11 @@ export class TestScene extends Phaser.Scene {
         const layer = map.createLayer(0, tiles, 0, 0);
         layer.setCollisionFromCollisionGroup(true)
 
-        this.physics.add.collider(char,layer)
+        this.physics.add.collider(char, layer)
+
+        this.cameras.main.startFollow(char)
+        this.cameras.main.setBounds(0, 0, this.scale.width, this.scale.height)
+        this.cameras.main.setZoom(2,2)
 
     }
 }
