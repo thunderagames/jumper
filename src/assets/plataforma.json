@@ -54,7 +54,7 @@
          "class":"platform",
          "columns":8,
          "firstgid":1,
-         "image":"Tileset.png",
+         "image":"..\/..\/..\/..\/Tiled\/Learning\/Tileset.png",
          "imageheight":96,
          "imagewidth":128,
          "margin":0,
@@ -141,6 +141,29 @@
                 }, 
                 {
                  "id":2,
+                 "objectgroup":
+                    {
+                     "draworder":"index",
+                     "id":2,
+                     "name":"",
+                     "objects":[
+                            {
+                             "height":16,
+                             "id":1,
+                             "name":"",
+                             "rotation":0,
+                             "type":"",
+                             "visible":true,
+                             "width":16,
+                             "x":0,
+                             "y":0
+                            }],
+                     "opacity":1,
+                     "type":"objectgroup",
+                     "visible":true,
+                     "x":0,
+                     "y":0
+                    },
                  "type":"plataforma"
                 }, 
                 {
@@ -259,6 +282,17 @@
                              "width":16,
                              "x":0,
                              "y":0
+                            }, 
+                            {
+                             "height":16,
+                             "id":7,
+                             "name":"",
+                             "rotation":0,
+                             "type":"",
+                             "visible":true,
+                             "width":16,
+                             "x":0,
+                             "y":0
                             }],
                      "opacity":1,
                      "type":"objectgroup",
@@ -286,6 +320,17 @@
                              "width":16,
                              "x":0,
                              "y":0
+                            }, 
+                            {
+                             "height":16,
+                             "id":2,
+                             "name":"",
+                             "rotation":0,
+                             "type":"",
+                             "visible":true,
+                             "width":16,
+                             "x":0,
+                             "y":0
                             }],
                      "opacity":1,
                      "type":"objectgroup",
@@ -297,6 +342,29 @@
                 }, 
                 {
                  "id":10,
+                 "objectgroup":
+                    {
+                     "draworder":"index",
+                     "id":2,
+                     "name":"",
+                     "objects":[
+                            {
+                             "height":16,
+                             "id":1,
+                             "name":"",
+                             "rotation":0,
+                             "type":"",
+                             "visible":true,
+                             "width":16,
+                             "x":0,
+                             "y":0
+                            }],
+                     "opacity":1,
+                     "type":"objectgroup",
+                     "visible":true,
+                     "x":0,
+                     "y":0
+                    },
                  "type":"plataforma"
                 }, 
                 {
@@ -321,10 +389,56 @@
                 }, 
                 {
                  "id":16,
+                 "objectgroup":
+                    {
+                     "draworder":"index",
+                     "id":2,
+                     "name":"",
+                     "objects":[
+                            {
+                             "height":15,
+                             "id":1,
+                             "name":"",
+                             "rotation":0,
+                             "type":"",
+                             "visible":true,
+                             "width":14,
+                             "x":2,
+                             "y":0
+                            }],
+                     "opacity":1,
+                     "type":"objectgroup",
+                     "visible":true,
+                     "x":0,
+                     "y":0
+                    },
                  "type":"plataforma"
                 }, 
                 {
                  "id":17,
+                 "objectgroup":
+                    {
+                     "draworder":"index",
+                     "id":2,
+                     "name":"",
+                     "objects":[
+                            {
+                             "height":16,
+                             "id":1,
+                             "name":"",
+                             "rotation":0,
+                             "type":"",
+                             "visible":true,
+                             "width":16,
+                             "x":0,
+                             "y":0
+                            }],
+                     "opacity":1,
+                     "type":"objectgroup",
+                     "visible":true,
+                     "x":0,
+                     "y":0
+                    },
                  "type":"plataforma"
                 }, 
                 {
@@ -338,6 +452,17 @@
                             {
                              "height":15,
                              "id":1,
+                             "name":"",
+                             "rotation":0,
+                             "type":"",
+                             "visible":true,
+                             "width":14,
+                             "x":0,
+                             "y":0
+                            }, 
+                            {
+                             "height":15,
+                             "id":2,
                              "name":"",
                              "rotation":0,
                              "type":"",
