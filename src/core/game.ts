@@ -6,8 +6,8 @@ export class MyGame extends Phaser.Game {
         super({
             scale: {
                 width: 640,
-                height: 480,
-                expandParent: true,
+                height: 440,
+                //expandParent: true,
                 mode: Phaser.Scale.ScaleModes.FIT
             },
             dom: {

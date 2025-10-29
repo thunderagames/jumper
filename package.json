@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "development": "webpack serve --port 8858 --open --config webpack.development.js",
-    "distribution": "webpack --config webpack.distribution.js"
+    "development": "npx webpack serve --port 8858 --open --config webpack.development.js",
+    "distribution": "npx webpack --config webpack.distribution.js"
   },
   "keywords": [],
   "author": "",
