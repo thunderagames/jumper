@@ -10,6 +10,9 @@ export class TestScene extends Phaser.Scene {
             frameWidth: 50,
             frameHeight: 37
         })
+
+        this.load.image('tiles', 'assets/Tileset.png');
+        this.load.tilemapTiledJSON('map', 'assets/plataforma.json')
     }
 
     create(): void {
@@ -17,8 +20,18 @@ export class TestScene extends Phaser.Scene {
         const char = new MyCharacter(this, center.x, center.y)
         this.add.existing(char)
 
-        const rect = this.add.rectangle(this.scale.width / 2 + 100, this.scale.height - 20, this.scale.width / 2, 25, 0xFFFFFFF).setOrigin(0);
-        this.physics.add.existing(rect, true)
-        this.physics.add.collider(char, rect)
+        const map = this.make.tilemap({ key: 'map' });
+
+        // The first parameter is the name of the tileset in Tiled and the second parameter is the key
+        // of the tileset image used when loading the file in preload.
+        const tiles = map.addTilesetImage('Platforms', 'tiles');
+
+        // You can load a layer from the map using the layer name from Tiled, or by using the layer
+        // index (0 in this case).
+        const layer = map.createLayer(0, tiles, 0, 0);
+        layer.setCollisionFromCollisionGroup(true)
+
+        this.physics.add.collider(char,layer)
+
     }
 }

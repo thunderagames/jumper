@@ -49,8 +49,8 @@ export class MyCharacter extends Phaser.Physics.Arcade.Sprite {
         super(scene, x, y, 'knight')
         this.scene.physics.add.existing(this)
         this.setCollideWorldBounds(true)
-        this.setScale(2)
-        this.setBodySize(15, 30)
+        this.setScale(1d)
+        this.setBodySize(15, 37)
 
 
         this.scene.events.on('create', () => {
