@@ -39,10 +39,11 @@ export class MyCharacter extends Phaser.Physics.Arcade.Sprite {
     animations_lapses = {
         'idle': 1200,
         'crunch': 1000,
-        'run': 1100,
+        'run': 600,
         'jump': 500,
         'dash': 1000,
-        'attack': 250
+        'attack': 250,
+        'walk': 1100
     }
 
     constructor(scene: Phaser.Scene, x: number, y: number) {
@@ -62,22 +63,6 @@ export class MyCharacter extends Phaser.Physics.Arcade.Sprite {
     }
 
     setMoveInputs(): void {
-        //key for right
-        this.scene.input.keyboard.addKey('d')
-            .on('down', () => {
-                this.charStatus.movingToRight = true
-            }).on('up', () => {
-                this.charStatus.movingToRight = false
-            })
-
-        //key for left
-        this.scene.input.keyboard.addKey('a')
-            .on('down', () => {
-                this.charStatus.movingToLeft = true
-            }).on('up', () => {
-                this.charStatus.movingToLeft = false
-            })
-
         //key for jump
         this.scene.input.keyboard.addKey('space')
             .on('down', () => {
@@ -102,13 +87,24 @@ export class MyCharacter extends Phaser.Physics.Arcade.Sprite {
             }).on('up', () => {
                 this.horizontal_speed = 100;
                 this.animations_lapses.run = 1100
-                this.scene.anims.remove('run')
+                this.scene.anims.remove('walk')
                 this.generateAnims(this.scene)
             })
 
         let tmout = null
         let jumping = false
         this.scene.events.on('update', () => {
+
+            if (this.scene.input.keyboard.addKey('d').isDown)
+                this.charStatus.movingToRight = true
+            else
+                this.charStatus.movingToRight = false
+
+            if (this.scene.input.keyboard.addKey('a').isDown) {
+                this.charStatus.movingToLeft = true
+            } else { 
+                this.charStatus.movingToLeft = false
+            }
 
             if (this.charStatus.attacking && this.body.velocity.y == 0) {
                 this.play('attack', true)
@@ -127,26 +123,30 @@ export class MyCharacter extends Phaser.Physics.Arcade.Sprite {
             if (this.charStatus.movingToRight) {
                 if (this.body.velocity.y == 0 && !this.charStatus.attacking) {
                     this.play('run', true)
-                    this.setFlipX(false)
+
                 }
+                this.setFlipX(false)
                 this.setVelocityX(this.horizontal_speed)
             }
             else if (this.charStatus.movingToLeft) {
-                this.setFlipX(true)
+
                 if (this.body.velocity.y == 0 && !this.charStatus.attacking) {
                     this.play('run', true)
 
                 }
+                this.setFlipX(true)
                 this.setVelocityX(this.horizontal_speed * -1)
             }
 
-
+            if (jumping && this.body.velocity.y == 0) {
+                jumping = false;
+            }
 
             if (this.charStatus.jumping && !jumping) {
                 jumping = true
                 this.setVelocityY((200 + (this.horizontal_speed * 0.5)) * -1)
                 this.play('jump', true)
-                setTimeout(() => { this.charStatus.jumping = false; jumping = false; }, this.animations_lapses.jump)
+                setTimeout(() => { this.charStatus.jumping = false; }, this.animations_lapses.jump)
 
             } else if (this.charIsIdle()) {
                 this.play('idle', true)
@@ -165,8 +165,9 @@ export class MyCharacter extends Phaser.Physics.Arcade.Sprite {
 
     generateAnims(scene: Phaser.Scene): void {
         let anims = {
-            'idle': { frames: [0, 1, 2, 3], lapse: this.animations_lapses.idle },
+            'idle': { frames: [0, 1, 2, 3], lapse: this.animations_lapses.idle, },
             'crunch': { frames: [4, 5, 6, 7], lapse: this.animations_lapses.crunch },
+            'walk': { frames: [8, 9, 10, 11, 12, 13], lapse: this.animations_lapses.walk },
             'run': { frames: [8, 9, 10, 11, 12, 13], lapse: this.animations_lapses.run },
             'jump': { frames: [16, 17, 18, 19, 20, 21, 22, 23], lapse: this.animations_lapses.jump },
             'dash': { frames: [24, 25, 26, 27, 28], lapse: this.animations_lapses.dash },
